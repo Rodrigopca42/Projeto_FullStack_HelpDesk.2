@@ -68,14 +68,27 @@ public class Chamado implements Serializable{
 		this.id = id;
 	}
 	
+		
+
 	public LocalDate getDataAbertura() {
-		return null;
+		return dataAbertura;
+	}
+
+
+	public void setDataAbertura(LocalDate dataAbertura) {
+		this.dataAbertura = dataAbertura;
 	}
 
 
 	public LocalDate getDataFechamento() {
-		return null;
+		return dataFechamento;
 	}
+
+
+	public void setDataFechamento(LocalDate dataFechamento) {
+		this.dataFechamento = dataFechamento;
+	}
+
 
 	public Prioridade getPrioridade() {
 		return prioridade;
