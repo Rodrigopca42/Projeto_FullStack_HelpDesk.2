@@ -18,10 +18,12 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.rodrigo.hekpdesk.security.JWTAuthenticationFilter;
+import com.rodrigo.hekpdesk.security.JWTAuthorizationFilter;
 import com.rodrigo.hekpdesk.security.JWTUtil;
 
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private static final String[] PUBLIC_MATCHERS = { "/h2-console/**" };
@@ -40,7 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		}
 
 		http.cors().and().csrf().disable();
+		
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+		
+		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 
 		http.authorizeRequests()
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
