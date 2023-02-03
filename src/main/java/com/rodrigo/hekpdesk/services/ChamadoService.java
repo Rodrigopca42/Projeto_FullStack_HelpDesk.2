@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.rodrigo.hekpdesk.domain.Chamado;
 import com.rodrigo.hekpdesk.domain.Cliente;
