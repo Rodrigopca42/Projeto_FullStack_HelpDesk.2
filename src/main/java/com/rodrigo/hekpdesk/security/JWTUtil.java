@@ -2,6 +2,7 @@ package com.rodrigo.hekpdesk.security;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +13,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JWTUtil {
 
+	@Autowired
 	@Value("${Jwt.expiration}")
 	private Long expiration;
 
+	@Autowired
 	@Value("${Jwt.secret}")
 	private String secret;
 
